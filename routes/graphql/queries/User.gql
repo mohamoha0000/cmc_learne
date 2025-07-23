@@ -1,0 +1,17 @@
+# import User from '../types/User.gql'
+
+enum  Order {
+    OLDEST
+    NEWEST
+}
+
+type Query {
+    user(id: String, name: String) : User
+    users(
+        order: Order
+        max: Int
+        skip: Int
+        role: Int
+    ) : [User]
+    usersCount : Int
+}

@@ -1,0 +1,26 @@
+
+scalar Object
+
+type UserPermissions {
+    dashboard: Object
+    products: Object
+    orders: Object
+    media: Object
+    users: Object
+}
+
+type userNotifications {
+    name: String
+    description: String
+    date: String
+}
+
+type User {
+    name: String!
+    email: String!
+    role: Int!
+    phone: String
+    date: String
+    notifications: [userNotifications]
+    id: String
+}

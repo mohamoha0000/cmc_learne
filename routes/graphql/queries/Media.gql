@@ -1,0 +1,22 @@
+# import Media from '../types/Media.gql'
+# import MediaType from '../types/Media.gql'
+
+enum  Order {
+    OLDEST
+    NEWEST
+}
+
+type Query {
+    media(id: String) : Media
+    medias(
+        order: Order
+        max: Int
+        skip: Int
+        search: String
+        type: MediaType
+    ) : [Media]
+    mediaLength(
+        search: String
+        type: MediaType
+    ) : Int
+}

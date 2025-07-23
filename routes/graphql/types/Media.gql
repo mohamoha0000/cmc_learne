@@ -1,0 +1,16 @@
+enum MediaType {
+    image
+    video
+}
+
+type Media {
+    name: String!
+    type: MediaType!
+    url: String!
+    width: Int
+    height: Int
+    size: Float
+    format: String
+    id: String
+    date: String
+}
