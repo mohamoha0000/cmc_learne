@@ -33,11 +33,31 @@ class MyDocument extends Document<DocumentProps> {
 
                 <link rel="icon" href="/favicon.png" />
                 <link rel="stylesheet" href="style.css"/>
+
+    
+                <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,500i,700,900&display=swap" rel="stylesheet"/>
+
+                <link rel="stylesheet" href="css/bootstrap.css"/>
+                <link rel="stylesheet" href="css/font-awesome.css"/>
+                <link rel="stylesheet" href="css/fakeLoader.css"/>
+                <link rel="stylesheet" href="css/owl.carousel.css"/>
+                <link rel="stylesheet" href="css/owl.theme.default.css"/>
+                <link rel="stylesheet" href="css/magnific-popup.css"/>
+                <link rel="stylesheet" href="css/style.css"/>
             </Head>
             <body>
                 <Main />
                 <NextScript />
                 <Script src="script.js" strategy="lazyOnload" />
+                 <Script src="js/jquery.min.js" strategy="lazyOnload"/>
+                  <Script src="js/bootstrap.min.js" strategy="lazyOnload"/>
+                  <Script src="js/fakeLoader.min.js" strategy="lazyOnload"/>
+                  <Script src="js/owl.carousel.min.js" strategy="lazyOnload"/>
+                  <Script src="js/jquery.filterizr.min.js" strategy="lazyOnload"/>
+                  <Script src="js/imagesloaded.pkgd.min.js" strategy="lazyOnload"/>
+                  <Script src="js/jquery.magnific-popup.min.js" strategy="lazyOnload"/>
+                  <Script src="js/contact-form.js" strategy="lazyOnload"/>
+                  <Script src="js/main.js" strategy="lazyOnload"/>
             </body>
           </Html>
         )
