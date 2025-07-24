@@ -17,7 +17,7 @@ const props = {
             href:StringField({ type: 'short',default:"#" }),
         },
           default: [
-        {title:"Home",href:"/"},
+        {title:"Home",href:"#"},
         {title:"About",href:"#about"},
         {title:"Education",href:"#education"},
         {title:"Experience",href:"#experience"},
@@ -41,6 +41,7 @@ const Header = ({ links, ...props } : Props) => {
                    ))}
               </ul>
             </nav>
+            <div className="hamburger" id="hamburger-icon">&#9776;</div>
          </header>
     )
 };

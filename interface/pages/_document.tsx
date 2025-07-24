@@ -37,7 +37,7 @@ class MyDocument extends Document<DocumentProps> {
             <body>
                 <Main />
                 <NextScript />
-                <script src="script.js"/>
+                <Script src="script.js" strategy="lazyOnload" />
             </body>
           </Html>
         )
