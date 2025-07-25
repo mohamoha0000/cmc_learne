@@ -2,13 +2,20 @@ import { WC, WCList } from '../builder/types';
 import { StringField, BooleanField, NumberField, ListField, ModelField } from '../builder';
 import {  useBuilderContext } from '../builder';
 import { BuilderComp } from "../builder/types";
-
+import { MediaProps,mediaProps,Link,MediaComp } from '../comps';
 interface Props {
-    title:WC<string>,
+    title:WC<string>;
      links: WCList<{
         title:WC<string>,
         href:WC<string>
      }>;
+     small_title:WC<string>;
+     huge_title:WC<string>;
+     button:{
+        title:WC<string>;
+        href:WC<string>;
+     };
+     image:MediaProps;
 }
 
 const props = {
@@ -26,12 +33,19 @@ const props = {
         {title:"Blog",href:"#blog"},
         {title:"Contact",href:"#contact"},
         ]
-     })
+     }),
+     small_title :StringField({default:"I am Bleak Peaker"}),
+     huge_title:StringField({default:"Graphic Designer"}), 
+     button:{
+        title:StringField({default:"Contact Me"}),
+        href:StringField({default:"#"}),  
+     },
+     image:mediaProps(null)
 };
 
 
 
-const Header = ({ title,links, ...props } : Props) => {
+const Header = ({ title,links,small_title,huge_title,button,image, ...props } : Props) => {
     const { c } = useBuilderContext();
 
     return (
@@ -74,14 +88,17 @@ const Header = ({ title,links, ...props } : Props) => {
                     <div className="row justify-content-center">
                     <div className="col-md-8 col-sm-12 col-xs-12">
                         <div className="intro-caption">
-                        <span>I am Bleak Peaker</span>
-                        <h2>Graphic Designer</h2>
-                        <button className="button">Contact Me</button>
+                        <span {...c(small_title)}>{small_title[0]}</span>
+                        <h2 {...c(huge_title)}>{huge_title[0]}</h2>
+                        <button className="button">
+                          <Link {...c(button.title,button)} href={button.href[0]}>{button.title[0]}</Link>
+                        </button>
                         </div>
                     </div>
                     <div className="col-md-4 col-sm-12 col-xs-12">
                         <div className="intro-image">
-                        <img src="images/intro-image.png" alt="" />
+                            {!image.media.public_id && <img {...c(image.media)} src="images/intro-image.png" alt="" />}
+                            {image.media.public_id && <MediaComp.comp {...image} />}
                         </div>
                     </div>
                     </div>
