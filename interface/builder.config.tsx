@@ -6,11 +6,13 @@ import config from "../config";
 import { BuilderDevice } from "./builder/types";
 import {componentInfo} from './sections/MyComponent';
 import { header } from "./sections/Header";
+import { about } from "./sections/About";
 
 const sections = {
     group: [
         componentInfo,
-        header
+        header,
+        about
     ]
 };
 
