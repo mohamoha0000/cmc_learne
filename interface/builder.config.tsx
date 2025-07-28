@@ -7,12 +7,13 @@ import { BuilderDevice } from "./builder/types";
 import {componentInfo} from './sections/MyComponent';
 import { header } from "./sections/Header";
 import { about } from "./sections/About";
-
+import { resume } from "./sections/Resume";
 const sections = {
     group: [
         componentInfo,
         header,
-        about
+        about,
+        resume
     ]
 };
 
