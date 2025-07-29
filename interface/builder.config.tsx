@@ -12,7 +12,9 @@ const sections = {
     group: [
         componentInfo,
         header,
-        about,
+        about
+    ],
+    group2:[
         resume
     ]
 };
