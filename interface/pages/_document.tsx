@@ -48,6 +48,16 @@ class MyDocument extends Document<DocumentProps> {
             <body>
                 <Main />
                 <NextScript />
+                {/* <Script src="script.js"  />
+                 <Script src="js/jquery.min.js" />
+                  <Script src="js/bootstrap.min.js" />
+                  <Script src="js/fakeLoader.min.js" />
+                  <Script src="js/owl.carousel.min.js" />
+                  <Script src="js/jquery.filterizr.min.js" />
+                  <Script src="js/imagesloaded.pkgd.min.js" />
+                  <Script src="js/jquery.magnific-popup.min.js" />
+                  <Script src="js/contact-form.js" />
+                  <Script src="js/main.js" /> */}
                 <Script src="script.js" strategy="lazyOnload" />
                  <Script src="js/jquery.min.js" strategy="lazyOnload"/>
                   <Script src="js/bootstrap.min.js" strategy="lazyOnload"/>

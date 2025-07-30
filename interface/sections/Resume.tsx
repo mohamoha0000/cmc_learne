@@ -7,7 +7,8 @@ import {
 } from "../builder";
 import { BuilderComp, WC, WCList } from "../builder/types";
 import { map } from "lodash";
-
+import { useEffect, useRef } from "react";
+import $ from "jquery";
 interface Slide1 {
   small_title: WC<string>;
   huge_title: WC<string>;
@@ -97,7 +98,15 @@ const props = {
 
 const Resume = ({ title, slide1, slide2, slide3, ...props }: Props) => {
   const { c } = useBuilderContext();
-
+  const ref = useRef<HTMLElement>()
+  useEffect(()=>{
+    if(ref.current instanceof HTMLElement){
+      $(ref.current).owlCarousel({
+        items:1,
+        margin:10
+      });
+    }
+  },[ref]);
   return (
     <div id="resume" className="resume segments">
       <div className="container">
@@ -105,7 +114,7 @@ const Resume = ({ title, slide1, slide2, slide3, ...props }: Props) => {
           <div className="section-title">
             <h3 {...c(title)}>{title[0]}</h3>
           </div>
-          <div className="owl-carousel owl-theme">
+          <div ref={ref as any} className="owl-carousel owl-theme">
             {[slide1, slide2].map((slide, index) => (
               <div key={index} {...c(slide)} className="content">
                 {/* my experience */}
