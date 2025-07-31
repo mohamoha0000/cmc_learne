@@ -97,20 +97,12 @@ const props = {
 
 const Resume = ({ title, slide1, slide2, slide3, ...props }: Props) => {
   const { c } = useBuilderContext();
-  const ref = useRef<HTMLElement>()
+  const ref = useRef<HTMLElement>();
   useEffect(() => {
-    const $ = (window as any).$;
-    if (ref.current && $ && $.fn.owlCarousel) {
+    if (ref.current instanceof HTMLElement) {
       $(ref.current).owlCarousel({
         items: 1,
-        loop: true,
         margin: 10,
-        nav: true,
-        dots: false,
-        navText: [
-          "<i class='fa fa-angle-left'></i>",
-          "<i class='fa fa-angle-right'></i>",
-        ],
       });
     }
   }, [ref]);
@@ -214,7 +206,9 @@ const Resume = ({ title, slide1, slide2, slide3, ...props }: Props) => {
                                   {item.skills[0].map((skill, index) => (
                                     <li key={index} {...c(skill)}>
                                       <div className="skill-title">
-                                        <span {...c(skill.title)}>{skill.title[0]}</span>
+                                        <span {...c(skill.title)}>
+                                          {skill.title[0]}
+                                        </span>
                                       </div>
                                       <div className="progress">
                                         <div
@@ -223,7 +217,9 @@ const Resume = ({ title, slide1, slide2, slide3, ...props }: Props) => {
                                           aria-valuenow={skill.progress[0]}
                                           aria-valuemin={0}
                                           aria-valuemax={100}
-                                          style={{ width: skill.progress[0]+"%" }}
+                                          style={{
+                                            width: skill.progress[0] + "%",
+                                          }}
                                         />
                                       </div>
                                     </li>
