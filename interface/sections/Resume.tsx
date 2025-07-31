@@ -186,9 +186,9 @@ const Resume = ({ title, slide1, slide2, slide3, ...props }: Props) => {
                                   className="btn btn-link"
                                   type="button"
                                   data-toggle="collapse"
-                                  data-target="#collapse1"
+                                  data-target={`#collapse${index}`}
                                   aria-expanded="true"
-                                  aria-controls="collapse1"
+                                  aria-controls={`collapse${index}`}
                                 >
                                   <i className="fas fa-circle" />
                                   {item.title[0]}
@@ -196,7 +196,7 @@ const Resume = ({ title, slide1, slide2, slide3, ...props }: Props) => {
                               </h2>
                             </div>
                             <div
-                              id="collapse1"
+                              id={`collapse${index}`}
                               className="collapse collapse-show"
                               aria-labelledby="personalSkill"
                               data-parent="#accordionSkill"
