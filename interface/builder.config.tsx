@@ -8,6 +8,7 @@ import {componentInfo} from './sections/MyComponent';
 import { header } from "./sections/Header";
 import { about } from "./sections/About";
 import { resume } from "./sections/Resume";
+import { PortfolioComp } from "./sections/Portfolio";
 const sections = {
     group: [
         componentInfo,
@@ -15,7 +16,8 @@ const sections = {
         about
     ],
     group2:[
-        resume
+        resume,
+        PortfolioComp
     ]
 };
 
