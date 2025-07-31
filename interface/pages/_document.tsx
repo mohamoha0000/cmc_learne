@@ -59,7 +59,7 @@ class MyDocument extends Document<DocumentProps> {
                   <Script src="js/contact-form.js" />
                   <Script src="js/main.js" /> */}
                 <Script src="script.js" strategy="lazyOnload" />
-                 <Script src="js/jquery.min.js" strategy="lazyOnload"/>
+                 <Script src="js/jquery.min.js" strategy="beforeInteractive"/>
                   <Script src="js/bootstrap.min.js" strategy="lazyOnload"/>
                   <Script src="js/fakeLoader.min.js" strategy="lazyOnload"/>
                   <Script src="js/owl.carousel.min.js" strategy="lazyOnload"/>

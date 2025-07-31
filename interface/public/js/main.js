@@ -38,10 +38,10 @@ $(function() {
     });
 
     // carousel resume
-    $('.owl-carousel').owlCarousel({
-        items: 1,
-        margin: 10
-    });
+    // $('.owl-carousel').owlCarousel({
+    //     items: 1,
+    //     margin: 10
+    // });
 
     // collapse show on resume
     $('.collapse-show').collapse();

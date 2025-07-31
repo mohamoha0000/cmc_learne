@@ -8,7 +8,7 @@ import {
 import { BuilderComp, WC, WCList } from "../builder/types";
 import { map } from "lodash";
 import { useEffect, useRef } from "react";
-import $ from "jquery";
+// import $ from "jquery";
 interface Slide1 {
   small_title: WC<string>;
   huge_title: WC<string>;
