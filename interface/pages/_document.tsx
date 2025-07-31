@@ -60,12 +60,12 @@ class MyDocument extends Document<DocumentProps> {
                   <Script src="js/main.js" /> */}
                 <Script src="script.js" strategy="lazyOnload" />
                  <Script src="js/jquery.min.js" strategy="beforeInteractive"/>
-                  <Script src="js/bootstrap.min.js" strategy="lazyOnload"/>
+                  <Script src="js/bootstrap.min.js" strategy="beforeInteractive"/>
                   <Script src="js/fakeLoader.min.js" strategy="lazyOnload"/>
-                  <Script src="js/owl.carousel.min.js" strategy="lazyOnload"/>
-                  <Script src="js/jquery.filterizr.min.js" strategy="lazyOnload"/>
+                  <Script src="js/owl.carousel.min.js" strategy="beforeInteractive"/>
+                  <Script src="js/jquery.filterizr.min.js" strategy="beforeInteractive"/>
                   <Script src="js/imagesloaded.pkgd.min.js" strategy="lazyOnload"/>
-                  <Script src="js/jquery.magnific-popup.min.js" strategy="lazyOnload"/>
+                  <Script src="js/jquery.magnific-popup.min.js" strategy="beforeInteractive"/>
                   <Script src="js/contact-form.js" strategy="lazyOnload"/>
                   <Script src="js/main.js" strategy="lazyOnload"/>
             </body>

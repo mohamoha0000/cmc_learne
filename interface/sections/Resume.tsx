@@ -8,7 +8,6 @@ import {
 import { BuilderComp, WC, WCList } from "../builder/types";
 import { map } from "lodash";
 import { useEffect, useRef } from "react";
-// import $ from "jquery";
 interface Slide1 {
   small_title: WC<string>;
   huge_title: WC<string>;
@@ -99,14 +98,22 @@ const props = {
 const Resume = ({ title, slide1, slide2, slide3, ...props }: Props) => {
   const { c } = useBuilderContext();
   const ref = useRef<HTMLElement>()
-  useEffect(()=>{
-    if(ref.current instanceof HTMLElement){
+  useEffect(() => {
+    const $ = (window as any).$;
+    if (ref.current && $ && $.fn.owlCarousel) {
       $(ref.current).owlCarousel({
-        items:1,
-        margin:10
+        items: 1,
+        loop: true,
+        margin: 10,
+        nav: true,
+        dots: false,
+        navText: [
+          "<i class='fa fa-angle-left'></i>",
+          "<i class='fa fa-angle-right'></i>",
+        ],
       });
     }
-  },[ref]);
+  }, [ref]);
   return (
     <div id="resume" className="resume segments">
       <div className="container">
