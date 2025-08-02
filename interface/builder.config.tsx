@@ -9,6 +9,7 @@ import { header } from "./sections/Header";
 import { about } from "./sections/About";
 import { resume } from "./sections/Resume";
 import { PortfolioComp } from "./sections/Portfolio";
+import { BlogComp } from "./sections/Blog";
 const sections = {
     group: [
         componentInfo,
@@ -17,7 +18,8 @@ const sections = {
     ],
     group2:[
         resume,
-        PortfolioComp
+        PortfolioComp,
+        BlogComp
     ]
 };
 

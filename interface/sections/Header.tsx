@@ -97,7 +97,7 @@ const Header = ({ title,links,small_title,huge_title,button,image, ...props } : 
                     </div>
                     <div className="col-md-4 col-sm-12 col-xs-12">
                         <div className="intro-image">
-                            {!image.media.public_id && <img {...c(image.media)} src="images/intro-image.png" alt="" />}
+                            {!image.media.public_id && <img {...c(image.media)} src="/images/intro-image.png" alt="" />}
                             {image.media.public_id && <MediaComp.comp {...image} width={400} />}
                         </div>
                     </div>
