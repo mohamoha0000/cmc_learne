@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import {
   ListField,
   ModelField,
@@ -37,7 +38,9 @@ const props = {
 
 const Portfolio = ({ portfolios, title, ...props }: Props) => {
   const { c } = useBuilderContext();
-
+  const groups = useMemo(() => {
+    return [... new Set(portfolios[0].map(portfolio => portfolio.categorie))];
+  }, [portfolios])
   return (
     <div {...c(props)} id="portfolio" className="portfolio segments">
       <div className="container">
@@ -50,30 +53,26 @@ const Portfolio = ({ portfolios, title, ...props }: Props) => {
               <li data-filter="all" className="active">
                 <span>See All</span>
               </li>
-              <li data-filter={1}>
-                <span>House Plant</span>
-              </li>
-              <li data-filter={2}>
-                <span>Flowers</span>
-              </li>
-              <li data-filter={3}>
-                <span>Photography</span>
-              </li>
+              {groups.map((group) => (
+                <li key={group} data-filter={groups.indexOf(group)+1}>
+                  <span>{group}</span>
+                </li>
+              ))}
             </ul>
           </div>
           <div {...c(portfolios)} className="row no-gutters filtr-container">
             {portfolios[0].map((portfolio, index) => (
               <div {...c(portfolio)} key={index}
                 className="col-md-4 col-sm-12 col-xs-12 filtr-item"
-                data-category={3}
+                data-category={groups.indexOf(portfolio.categorie)+1}
               >
                 <div className="content-image">
-                  <a href={portfolio.image ? resizeMedia(portfolio.image,1200):"images/portfolio1.jpg"} className="portfolio-popup">
-                    { !portfolio.image && <img src="images/portfolio1.jpg" alt="" />}
-                    { portfolio.image && <MediaComp.comp media={portfolio.image} width={500} />}
+                  <a href={portfolio.image ? resizeMedia(portfolio.image, 1200) : "images/portfolio1.jpg"} className="portfolio-popup">
+                    {!portfolio.image && <img src="images/portfolio1.jpg" alt="" />}
+                    {portfolio.image && <MediaComp.comp media={portfolio.image} width={500} height={600} />}
                     <div className="image-overlay" />
                     <div className="portfolio-caption">
-                      <div className="title" style={{display:"block"}}>
+                      <div className="title" style={{ display: "block" }}>
                         <h4>{portfolio.title}</h4>
                       </div>
                       <div className="subtitle">
@@ -91,8 +90,8 @@ const Portfolio = ({ portfolios, title, ...props }: Props) => {
   );
 };
 
-export const PortfolioComp : BuilderComp ={
-    name:"Portfolio",
-    comp: Portfolio,
-    props
+export const PortfolioComp: BuilderComp = {
+  name: "Portfolio",
+  comp: Portfolio,
+  props
 } 
