@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import {
   ListField,
   ModelField,
@@ -38,11 +38,43 @@ const props = {
 
 const Portfolio = ({ portfolios, title, ...props }: Props) => {
   const { c } = useBuilderContext();
+  const ref = useRef<HTMLElement>();
+  const rd=Math.random().toString().replace(".","0");
   const groups = useMemo(() => {
     return [... new Set(portfolios[0].map(portfolio => portfolio.categorie))];
-  }, [portfolios])
+  }, [portfolios]);
+
+  useEffect(() => {
+    //if (!ref.current) return;
+    if (ref.current instanceof HTMLElement) {
+      // porfolio filterizr
+      $(ref.current).find('.'+rd).imagesLoaded(function () {
+        const element=$(ref.current).find('.'+rd);
+        if(element[0] instanceof HTMLElement){
+          var filterizr=element.filterizr();
+        }
+      });
+
+      // portfolio filter
+      $(ref.current).find('.portfolio-filter-menu li').on('click', function () {
+        $(ref.current).find('.portfolio-filter-menu li').removeClass('active');
+        $(this).addClass('active');
+      });
+
+      // portfolio magnific popup
+      $(ref.current).each(function () { // the containers for all your galleries
+        $(this).magnificPopup({
+          delegate: '.portfolio-popup', // the selector for portfolio item
+          type: 'image',
+          gallery: {
+            enabled: true
+          }
+        });
+      });
+    }
+  }, [groups, ref])
   return (
-    <div {...c(props)} id="portfolio" className="portfolio segments">
+    <div ref={ref as any} {...c(props)} id="portfolio" className="portfolio segments">
       <div className="container">
         <div className="box-content">
           <div className="section-title">
@@ -54,17 +86,17 @@ const Portfolio = ({ portfolios, title, ...props }: Props) => {
                 <span>See All</span>
               </li>
               {groups.map((group) => (
-                <li key={group} data-filter={groups.indexOf(group)+1}>
+                <li key={group} data-filter={groups.indexOf(group) + 1}>
                   <span>{group}</span>
                 </li>
               ))}
             </ul>
           </div>
-          <div {...c(portfolios)} className="row no-gutters filtr-container">
+          <div {...c(portfolios)} className={`row no-gutters ${rd}`}>
             {portfolios[0].map((portfolio, index) => (
               <div {...c(portfolio)} key={index}
                 className="col-md-4 col-sm-12 col-xs-12 filtr-item"
-                data-category={groups.indexOf(portfolio.categorie)+1}
+                data-category={groups.indexOf(portfolio.categorie) + 1}
               >
                 <div className="content-image">
                   <a href={portfolio.image ? resizeMedia(portfolio.image, 1200) : "images/portfolio1.jpg"} className="portfolio-popup">
