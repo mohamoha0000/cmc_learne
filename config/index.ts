@@ -24,6 +24,7 @@ export default {
         login: process.env.SMTP_LOGIN,
         pass: process.env.SMTP_PASSWORD,
         host: process.env.SMTP_HOST,
+        port: process.env.SMTP_PORT,
         recivier: process.env.MAIL_RECIVIER,
     },
     env: {

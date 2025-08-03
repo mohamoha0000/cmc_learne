@@ -10,6 +10,7 @@ import { about } from "./sections/About";
 import { resume } from "./sections/Resume";
 import { PortfolioComp } from "./sections/Portfolio";
 import { BlogComp } from "./sections/Blog";
+import { contactComp } from "./sections/Contact";
 const sections = {
     group: [
         componentInfo,
@@ -20,6 +21,9 @@ const sections = {
         resume,
         PortfolioComp,
         BlogComp
+    ],
+    group3:[
+        contactComp
     ]
 };
 

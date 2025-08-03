@@ -62,13 +62,13 @@ export function extractSrcWithRegExp(iframeHTML) {
 }
 
 export const validateMailForm = (body: any) => {
-  const { f_name, l_name, objective, email, phone, message } = body;
+  const { f_name, l_name, email,objective, message } = body;
 
   if(!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) return null;
   if(!message) return null;
   if(message.length < 4) return false;
 
-  return { f_name, l_name, objective, email, phone, message };
+  return { f_name, l_name, email,objective, message };
 }
 
 function validateLinkedInProfile(url) {
