@@ -121,8 +121,9 @@ const contact = ({ formm, title, huge_title, button, ...props }: Props) => {
                                         <div className="col">
                                             <div id="first-name-field">
                                                 <input
+                                                   {...c(formm.firstname)}
                                                     type="text"
-                                                    placeholder={"first name"}
+                                                    placeholder={formm.firstname[0]}
                                                     className="form-control"
                                                     name="f_name"
                                                     value={formData.f_name}
@@ -133,8 +134,9 @@ const contact = ({ formm, title, huge_title, button, ...props }: Props) => {
                                         <div className="col">
                                             <div id="last-name-field">
                                                 <input
+                                                     {...c(formm.lastname)}
                                                     type="text"
-                                                    placeholder="Last Name"
+                                                    placeholder={formm.lastname[0]}
                                                     className="form-control"
                                                     name="l_name"
                                                     value={formData.l_name}
@@ -147,8 +149,9 @@ const contact = ({ formm, title, huge_title, button, ...props }: Props) => {
                                         <div className="col">
                                             <div id="email-field">
                                                 <input
+                                                     {...c(formm.email)}
                                                     type="email"
-                                                    placeholder="Email Address"
+                                                    placeholder={formm.email[0]}
                                                     className="form-control"
                                                     name="email"
                                                     value={formData.email}
@@ -159,8 +162,9 @@ const contact = ({ formm, title, huge_title, button, ...props }: Props) => {
                                         <div className="col">
                                             <div id="subject-field">
                                                 <input
+                                                     {...c(formm.subject)}
                                                     type="text"
-                                                    placeholder="Subject"
+                                                    placeholder={formm.subject[0]}
                                                     className="form-control"
                                                     name="objective"
                                                     value={formData.objective}
@@ -173,12 +177,13 @@ const contact = ({ formm, title, huge_title, button, ...props }: Props) => {
                                         <div className="col">
                                             <div id="message-field">
                                                 <textarea
+                                                 {...c(formm.message)}
                                                     cols={30}
                                                     rows={5}
                                                     className="form-control"
                                                     id="form-message"
                                                     name="message"
-                                                    placeholder="Message"
+                                                    placeholder={formm.message[0]}
                                                     value={formData.message}
                                                     onChange={handleChange}
                                                 />
